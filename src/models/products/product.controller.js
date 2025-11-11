@@ -13,6 +13,17 @@ const createProductController = createAsyncFn(async (req, res) => {
   });
 });
 
+const getAllProductsController = createAsyncFn(async (req, res) => {
+  const products = await productServices.getAllProducts();
+  sendResponse(res, {
+    success: true,
+    message: 'Products retrieved successfully',
+    statusCode: httpStatusCode.OK,
+    data: products,
+  });
+});
+
 export const productController = {
   createProductController,
+  getAllProductsController,
 };
