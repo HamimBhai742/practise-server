@@ -10,7 +10,13 @@ const getAllUsers = async () => {
   return users;
 };
 
+const getSingleUser = async (id) => {
+  const user = await User.findById(id);
+  return user;
+}
+
 export const userServices = {
   createUser,
   getAllUsers,
+  getSingleUser,
 };
