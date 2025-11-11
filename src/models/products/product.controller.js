@@ -23,7 +23,19 @@ const getAllProductsController = createAsyncFn(async (req, res) => {
   });
 });
 
+const getSingleProductController = createAsyncFn(async (req, res) => {
+  const { id } = req.params;
+  const product = await productServices.getSingleProduct(id);
+  sendResponse(res, {
+    success: true,
+    message: 'Product retrieved successfully',
+    statusCode: httpStatusCode.OK,
+    data: product,
+  });
+});
+
 export const productController = {
   createProductController,
   getAllProductsController,
+  getSingleProductController,
 };
