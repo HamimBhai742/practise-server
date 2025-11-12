@@ -7,6 +7,12 @@ const createBlog = async (payload) => {
   return blog;
 };
 
+const getAllBlogs = async () => {
+  const blogs = await Blog.find();
+  return blogs;
+}
+
 export const blogService = {
   createBlog,
+  getAllBlogs,
 };

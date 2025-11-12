@@ -12,6 +12,17 @@ const createBlog = createAsyncFn(async (req, res) => {
   });
 });
 
+const getAllBlogs = createAsyncFn(async (req, res) => {
+  const result = await blogService.getAllBlogs();
+  sendResponse(res, {
+    statusCode: httpstatuscode.OK,
+    success: true,
+    message: 'Blogs retrieved successfully',
+    data: result,
+  });
+});
+
 export const blogController = {
   createBlog,
+  getAllBlogs,
 };
