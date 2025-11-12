@@ -20,7 +20,8 @@ src/
 │   └── router.js       # Main router
 ├── models/
 │   ├── users/          # User module
-│   └── products/       # Product module
+│   ├── products/       # Product module
+│   └── blogs/          # Blog module
 └── utils/              # Utility functions
 ```
 
@@ -63,6 +64,13 @@ npm run dev   # Start development server with nodemon
 - `PUT /api/v1/products/:id` - Update product
 - `DELETE /api/v1/products/:id` - Delete product
 
+### Blogs
+- `GET /api/v1/blogs` - Get all blogs
+- `POST /api/v1/blogs` - Create blog
+- `GET /api/v1/blogs/:id` - Get blog by ID
+- `PUT /api/v1/blogs/:id` - Update blog
+- `DELETE /api/v1/blogs/:id` - Delete blog
+
 ## Models
 
 ### User
@@ -88,6 +96,19 @@ npm run dev   # Start development server with nodemon
   description: String,
   category: String (Furniture/Electronics/Clothing/Books/Toys/Fashion/Sports/Health),
   stock: Number (default: 0)
+}
+```
+
+### Blog
+```javascript
+{
+  title: String (required),
+  content: String (required),
+  author: String (required),
+  tags: [String],
+  published: Boolean (default: false),
+  createdAt: Date (default: Date.now),
+  updatedAt: Date (default: Date.now)
 }
 ```
 
