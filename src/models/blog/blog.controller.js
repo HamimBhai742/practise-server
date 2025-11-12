@@ -22,7 +22,21 @@ const getAllBlogs = createAsyncFn(async (req, res) => {
   });
 });
 
+
+
+const getSingleBlog = createAsyncFn(async (req, res) => {
+  const { id } = req.params;
+  const result = await blogService.getSingleBlog(id);
+  sendResponse(res, {
+    statusCode: httpstatuscode.OK,
+    success: true,
+    message: 'Blog retrieved successfully',
+    data: result,
+  });
+});
+
 export const blogController = {
   createBlog,
   getAllBlogs,
+  getSingleBlog,
 };

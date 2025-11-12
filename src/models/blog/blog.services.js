@@ -12,7 +12,13 @@ const getAllBlogs = async () => {
   return blogs;
 }
 
+const getSingleBlog = async (id) => {
+  const blog = await Blog.findById(id);
+  return blog;
+}
+
 export const blogService = {
   createBlog,
   getAllBlogs,
+  getSingleBlog,
 };
